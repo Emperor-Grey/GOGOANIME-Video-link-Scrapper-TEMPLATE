@@ -1,10 +1,9 @@
-const { urlToHttpOptions } = require('url');
 const scrapLinks = require('./scrapEpisodes');
 const VideoExtractor = require('./VideoExtractor');
 async function main() {
   // get this from gogoanime
   const link = await scrapLinks(
-    'https://anitaku.to/detective-conan-episode-1107'
+    'https://anitaku.to/tokyo-revengers-tenjiku-hen-episode-11'
   );
 
   console.log(link);
