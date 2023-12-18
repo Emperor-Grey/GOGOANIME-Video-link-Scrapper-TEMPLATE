@@ -1,4 +1,3 @@
-// Import necessary libraries
 const CryptoJS = require('crypto-js');
 const axios = require('axios');
 const cheerio = require('cheerio');
@@ -175,18 +174,20 @@ class VideoExtractor {
   }
 }
 
-// Create an instance of VideoExtractor
-const videoExtractor = new VideoExtractor();
-// Specify the video URL you want to extract sources from
-const videoUrl = new URL(
-  'https://goone.pro/streaming.php?id=MjE2OTg2&title=Kage+no+Jitsuryokusha+ni+Naritakute%21+2nd+Season+Episode+11'
-);
-// Call the extract method and handle the results or errors
-videoExtractor
-  .extract(videoUrl)
-  .then((sources) => {
-    console.log('Video Sources:', sources);
-  })
-  .catch((error) => {
-    console.error('Error:', error.message);
-  });
+module.exports = VideoExtractor;
+
+// // Create an instance of VideoExtractor
+// const videoExtractor = new VideoExtractor();
+// // Specify the video URL you want to extract sources from
+// const videoUrl = new URL(
+//   'https://goone.pro/streaming.php?id=MjA4Njg4&title=NieR%3AAutomata+Ver1.1a+Episode+12'
+// );
+// // Call the extract method and handle the results or errors
+// videoExtractor
+//   .extract(videoUrl)
+//   .then((sources) => {
+//     console.log('Video Sources:', sources);
+//   })
+//   .catch((error) => {
+//     console.error('Error:', error.message);
+//   });
