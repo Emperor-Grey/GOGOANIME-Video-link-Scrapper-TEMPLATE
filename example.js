@@ -1,3 +1,5 @@
+const AsianExtractor = require('./AsianExtractor');
+const scrapAsian = require('./scrapAsian');
 const scrapLinks = require('./scrapEpisodes');
 const VideoExtractor = require('./VideoExtractor');
 async function main() {
@@ -15,4 +17,21 @@ async function main() {
   });
 }
 
+async function second() {
+  const link = await scrapAsian(
+    'https://draplay.info/videos/my-demon-2023-episode-8'
+  );
+  console.log(link);
+
+  const asian = new AsianExtractor();
+  const url = new URL('https:' + link);
+  asian.extract(url).then((data) => {
+    console.log(data);
+  });
+}
+
+// runs both concurrently
+// Promise.all([main(), second()]);
+
 main();
+second();

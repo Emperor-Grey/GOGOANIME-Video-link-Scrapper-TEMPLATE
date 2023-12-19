@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 
-const scrapLinks = async (link) => {
+const scrapAsian = async (link) => {
   const browser = await puppeteer.launch({ headless: 'new' });
   const page = await browser.newPage();
 
@@ -10,13 +10,17 @@ const scrapLinks = async (link) => {
 
   const linkSelector = await page.evaluate(() => {
     const iframe = document
-      .querySelector('#load_anime > div > div > iframe')
+      .querySelector(
+        'div > div.video-info-left > div.watch_play > div.play-video > iframe'
+      )
       .getAttribute('src');
     return iframe;
   });
-  await browser.close();
 
+  await browser.close();
   return linkSelector;
 };
 
-module.exports = scrapLinks;
+// // Example usage:
+// scrapAsian('https://draplay.info/videos/my-demon-2023-episode-8');
+module.exports = scrapAsian;
