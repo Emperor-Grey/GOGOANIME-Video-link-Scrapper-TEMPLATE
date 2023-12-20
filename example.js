@@ -49,7 +49,7 @@ async function second() {
   });
 }
 
-// runs both concurrently
+// runs all concurrently
 // Promise.all([main(), second(),third()]);
 
 main();
