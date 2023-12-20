@@ -7,7 +7,7 @@ const VideoExtractor = require('./VideoExtractor');
 async function first() {
   // get this from gogoanime
   const link = await scrapLinks(
-    'https://anitaku.to/tokyo-revengers-tenjiku-hen-episode-11'
+    'https://anitaku.to/dr-stone-new-world-part-2-episode-2'
   );
 
   const videoExtractor = new VideoExtractor();
@@ -20,7 +20,7 @@ async function first() {
 async function second() {
   // get this from asian load now known as draplay
   const link = await scrapAsian(
-    'https://draplay.info/videos/my-demon-2023-episode-8'
+    'https://draplay.info/videos/gifted-season-2-2023-episode-8'
   );
 
   const asian = new AsianExtractor();
