@@ -1,14 +1,14 @@
 const AsianExtractor = require('./AsianExtractor');
 const scrapAsian = require('./scrapAsian');
 const scrapLinks = require('./scrapEpisodes');
+const scrapMovies = require('./scrapMovieRulz');
+const StreamTapeExtractor = require('./SteamTape');
 const VideoExtractor = require('./VideoExtractor');
 async function main() {
   // get this from gogoanime
   const link = await scrapLinks(
     'https://anitaku.to/tokyo-revengers-tenjiku-hen-episode-11'
   );
-
-  console.log(link);
 
   const videoExtractor = new VideoExtractor();
   const videoUrl = new URL(link);
@@ -17,11 +17,30 @@ async function main() {
   });
 }
 
+async function third() {
+  // get this from movieRulz
+  const link = await scrapMovies(
+    'https://ww18.5movierulz.top/animal-2023-dvdscr-telugu-full-movie-watch-online-free/'
+  );
+
+  const videoUrl = new URL(link);
+
+  const streamTapeExtractor = new StreamTapeExtractor();
+  streamTapeExtractor
+    .extract(videoUrl)
+    .then((sources) => {
+      console.log('Video sources:', sources);
+    })
+    .catch((error) => {
+      console.error('Error extracting video sources:', error.message);
+    });
+}
+
 async function second() {
+  // get this from asian load now known as draplay
   const link = await scrapAsian(
     'https://draplay.info/videos/my-demon-2023-episode-8'
   );
-  console.log(link);
 
   const asian = new AsianExtractor();
   const url = new URL('https:' + link);
@@ -31,7 +50,8 @@ async function second() {
 }
 
 // runs both concurrently
-// Promise.all([main(), second()]);
+// Promise.all([main(), second(),third()]);
 
 main();
 second();
+third();
