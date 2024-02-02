@@ -30,28 +30,27 @@ async function second() {
   });
 }
 
-async function third() {
-  // get this from movieRulz
-  const link = await scrapMovies(
-    'https://ww18.5movierulz.top/animal-2023-dvdscr-telugu-full-movie-watch-online-free/'
-  );
+// async function third() {
+//   // get this from movieRulz
+//   const link = await scrapMovies(
+//     'https://ww18.5movierulz.top/animal-2023-dvdscr-telugu-full-movie-watch-online-free/'
+//   );
 
-  const videoUrl = new URL(link);
+//   const videoUrl = new URL(link);
 
-  const streamTapeExtractor = new StreamTapeExtractor();
-  streamTapeExtractor
-    .extract(videoUrl)
-    .then((sources) => {
-      console.log('Video sources:', sources);
-    })
-    .catch((error) => {
-      console.error('Error extracting video sources:', error.message);
-    });
-}
+//   const streamTapeExtractor = new StreamTapeExtractor();
+//   streamTapeExtractor
+//     .extract(videoUrl)
+//     .then((sources) => {
+//       console.log('Video sources:', sources);
+//     })
+//     .catch((error) => {
+//       console.error('Error extracting video sources:', error.message);
+//     });
+// }
 
 // runs all concurrently
-// Promise.all([main(), second(),third()]);
+// Promise.all([main(), second()]);
 
 first();
 second();
-third();
