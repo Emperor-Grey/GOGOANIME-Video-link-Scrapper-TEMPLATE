@@ -33,7 +33,7 @@ async function second() {
 // async function third() {
 //   // get this from movieRulz
 //   const link = await scrapMovies(
-//     'https://ww18.5movierulz.top/animal-2023-dvdscr-telugu-full-movie-watch-online-free/'
+//     'https://www.5movierulz.bingo/hanuman-2024-hdrip-original-malayalam-kannada-full-movie-watch-online-free/'
 //   );
 
 //   const videoUrl = new URL(link);
@@ -54,3 +54,4 @@ async function second() {
 
 first();
 second();
+// third();
