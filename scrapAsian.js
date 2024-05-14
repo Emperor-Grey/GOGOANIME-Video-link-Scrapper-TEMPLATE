@@ -1,24 +1,22 @@
 const puppeteer = require('puppeteer');
 
 const scrapAsian = async (link) => {
-  const browser = await puppeteer.launch({ headless: 'new' });
-  const page = await browser.newPage();
+    const browser = await puppeteer.launch({headless: 'new'});
+    const page = await browser.newPage();
 
-  await page.goto(link, {
-    waitUntil: 'domcontentloaded',
-  });
+    await page.goto(link, {
+        waitUntil: 'domcontentloaded',
+    });
 
-  const linkSelector = await page.evaluate(() => {
-    const iframe = document
-      .querySelector(
-        'div > div.video-info-left > div.watch_play > div.play-video > iframe'
-      )
-      .getAttribute('src');
-    return iframe;
-  });
+    const linkSelector = await page.evaluate(() => {
+        const iframe = document
+            .querySelector('div > div.video-info-left > div.watch_play > div.play-video > iframe')
+            .getAttribute('src');
+        return iframe;
+    });
 
-  await browser.close();
-  return linkSelector;
+    await browser.close();
+    return linkSelector;
 };
 
 // // Example usage:
